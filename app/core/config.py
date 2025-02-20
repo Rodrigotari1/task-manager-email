@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     # Service settings
     ENVIRONMENT: str = "development"
-    PORT: int = 8001
+    PORT: int = 8002
     
     # CORS settings
     CORS_ORIGINS: List[str] = ["*"]
@@ -17,8 +17,6 @@ class Settings(BaseSettings):
     # Email settings
     EMAIL_SENDER: str
     EMAIL_SENDER_NAME: str = "Task Manager"
-    
-    # Email Service URL
     EMAIL_SERVICE_URL: str = "http://localhost:8002"
     
     model_config = SettingsConfigDict(

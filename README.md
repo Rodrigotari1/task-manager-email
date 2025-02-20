@@ -80,6 +80,50 @@ response = requests.post(
 print(response.json())
 ```
 
+## Email Tracking
+
+The service includes a script to check email tracking status:
+
+```bash
+# Show overall analytics
+./scripts/check_tracking.sh
+
+# Check specific email tracking events
+./scripts/check_tracking.sh <tracking_id>
+```
+
+Example output for analytics:
+```
+Email Analytics Summary:
+====================
+Total Sent: 1
+Total Opened: 1
+Total Clicked: 0
+Open Rate: 0.0%
+Click Rate: 0.0%
+Delivery Rate: 100.0%
+```
+
+Example output for specific email:
+```
+Email Tracking Events for <tracking_id>:
+==================
+Event: PENDING
+Time: 2025-02-20T18:01:39.891637
+User Agent: N/A
+IP: N/A
+Metadata:
+  task_id: test123
+-------------------
+Event: SENT
+Time: 2025-02-20T18:01:40.499070
+User Agent: N/A
+IP: N/A
+Metadata:
+  message_id: 1952485c806137a7
+-------------------
+```
+
 ## Architecture
 
 See [Architecture Documentation](docs/architecture.md) for detailed information about:

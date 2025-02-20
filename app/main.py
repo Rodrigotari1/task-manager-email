@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
-from app.api.v1.endpoints import email
+from app.api.v1.endpoints import email, tracking
 
 app = FastAPI(
     title="Task Manager Email Service",
@@ -20,6 +20,7 @@ app.add_middleware(
 
 # Include routers
 app.include_router(email.router, prefix="/api/v1/email", tags=["email"])
+app.include_router(tracking.router, prefix="/api/v1/tracking", tags=["tracking"])
 
 # Add debug logging
 import logging
