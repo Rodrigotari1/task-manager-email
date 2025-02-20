@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>New Task Created</h2>
+
+<div style="margin: 20px 0; padding: 15px; border-left: 4px solid #4a90e2; background-color: #f8f9fa;">
+    <h3 style="margin: 0 0 10px 0; color: #4a90e2;">{{ task_title }}</h3>
+    
+    <div style="margin: 10px 0;">
+        <strong>Priority:</strong>
+        <span style="
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            background-color: {% if priority == 1 %}#ff4444{% elif priority == 2 %}#ff8800{% elif priority == 3 %}#ffbb33{% elif priority == 4 %}#00C851{% else %}#33b5e5{% endif %};
+            color: white;
+            font-size: 12px;
+        ">
+            {% if priority == 1 %}Highest
+            {% elif priority == 2 %}High
+            {% elif priority == 3 %}Medium
+            {% elif priority == 4 %}Low
+            {% else %}Lowest{% endif %}
+        </span>
+    </div>
+
+    <div style="margin: 15px 0;">
+        <strong>Description:</strong>
+        <p style="margin: 5px 0; white-space: pre-wrap;">{{ task_description }}</p>
+    </div>
+</div>
+
+<div style="margin-top: 20px; text-align: center;">
+    <a href="#" style="
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4a90e2;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    ">View Task Details</a>
+</div>
+{% endblock %} 
