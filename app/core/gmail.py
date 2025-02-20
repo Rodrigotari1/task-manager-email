@@ -18,6 +18,8 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
+CREDENTIALS_DIR = 'credentials'
+TOKEN_PATH = os.path.join(CREDENTIALS_DIR, 'token.pickle')
 
 class GmailService:
     def __init__(self):
@@ -32,10 +34,10 @@ class GmailService:
             creds = None
             
             # Load credentials from token pickle file if it exists
-            if os.path.exists('token.pickle'):
+            if os.path.exists(TOKEN_PATH):
                 logger.debug("Found token.pickle file, loading credentials")
                 try:
-                    with open('token.pickle', 'rb') as token:
+                    with open(TOKEN_PATH, 'rb') as token:
                         creds = pickle.load(token)
                     logger.debug("Successfully loaded credentials from token.pickle")
                 except Exception as e:
@@ -70,7 +72,7 @@ class GmailService:
 
                 # Save the credentials for future use
                 try:
-                    with open('token.pickle', 'wb') as token:
+                    with open(TOKEN_PATH, 'wb') as token:
                         pickle.dump(creds, token)
                     logger.debug("Successfully saved credentials to token.pickle")
                 except Exception as e:

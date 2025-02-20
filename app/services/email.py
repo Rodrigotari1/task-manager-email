@@ -19,7 +19,7 @@ class EmailService:
             # Render the email template
             try:
                 html_content = render_template(
-                    "task_created.html",
+                    "email_templates/task_notification.html",
                     task_title=email_request.task_title,
                     task_description=email_request.task_description,
                     priority=email_request.priority.value
