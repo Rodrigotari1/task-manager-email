@@ -19,6 +19,12 @@ class EmailRequest(BaseModel):
     priority: Priority
     metadata: Optional[Dict[str, str]] = None  # For tracking custom data
     tags: Optional[List[str]] = None  # For categorization
+    
+    # HubSpot fields
+    hubspot_portal_id: Optional[str] = None
+    hubspot_contact_id: Optional[str] = None
+    hubspot_deal_id: Optional[str] = None
+    task_url: Optional[str] = None  # URL to view task details
 
 class EmailStatus(str, Enum):
     PENDING = "pending"

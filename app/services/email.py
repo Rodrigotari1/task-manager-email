@@ -43,7 +43,12 @@ class EmailService:
                     task_description=email_request.task_description,
                     priority=email_request.priority.value,
                     tracking_id=tracking_id,
-                    tracking_url=settings.EMAIL_SERVICE_URL
+                    tracking_url=settings.EMAIL_SERVICE_URL,
+                    # Add HubSpot fields
+                    hubspot_portal_id=email_request.hubspot_portal_id,
+                    hubspot_contact_id=email_request.hubspot_contact_id,
+                    hubspot_deal_id=email_request.hubspot_deal_id,
+                    task_url=email_request.task_url or "#"
                 )
                 logger.debug("Template rendered successfully")
             except Exception as template_error:
