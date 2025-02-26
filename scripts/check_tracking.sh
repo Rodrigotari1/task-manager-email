@@ -8,7 +8,7 @@ show_usage() {
 
 # Show analytics
 show_analytics() {
-    curl -s http://localhost:8002/api/v1/tracking/analytics | \
+    curl -s http://localhost:8001/api/v1/tracking/analytics | \
     python3 -c "
 import sys, json
 data = json.load(sys.stdin)
@@ -25,7 +25,7 @@ print(f'Delivery Rate: {data['delivery_success_rate']*100:.1f}%')
 # Show events for specific email
 show_events() {
     local tracking_id=$1
-    curl -s "http://localhost:8002/api/v1/tracking/events/$tracking_id" | \
+    curl -s "http://localhost:8001/api/v1/tracking/events/$tracking_id" | \
     python3 -c "
 import sys, json
 data = json.load(sys.stdin)
