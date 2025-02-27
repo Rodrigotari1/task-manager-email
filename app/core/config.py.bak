@@ -1,4 +1,3 @@
-import os
 from typing import List
 from pydantic_settings import BaseSettings, SettingsConfigDict
 import json
@@ -6,7 +5,7 @@ import json
 class Settings(BaseSettings):
     # Service settings
     ENVIRONMENT: str = "development"
-    PORT: int = int(os.environ.get("PORT", "8001"))
+    PORT: int = 8001
     
     # CORS settings
     CORS_ORIGINS: str = '["*"]'
